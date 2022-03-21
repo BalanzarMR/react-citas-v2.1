@@ -66,13 +66,12 @@ const Formulario = () => {
 				</div>
 				<div className=" mb-2">
 					<label
-						htmlFor="mascota"
+						htmlFor="sintomas"
 						className=" block text-gray-700 uppercase font-bold "
 					>
-						Nombre Mascota
+						Sintomas
 					</label>
 					<textarea
-						name=""
 						id="sintomas"
 						className=" w-full border-2 placeholder-gray-400 rounded-md"
 						placeholder="Describe los sintomas"
