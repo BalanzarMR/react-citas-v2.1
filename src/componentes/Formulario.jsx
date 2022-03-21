@@ -8,7 +8,7 @@ const Formulario = () => {
 				Añade Pacientes{" "}
 				<span className=" text-indigo-600 font-bold">y Adminstralos</span>
 			</p>
-			<form className=" bg-white shadow-md rounded-lg p-3 px-3 ">
+			<form className=" bg-white shadow-md rounded-lg p-3 px-3 mx-4">
 				<div className=" mb-2">
 					<label
 						htmlFor="mascota"
