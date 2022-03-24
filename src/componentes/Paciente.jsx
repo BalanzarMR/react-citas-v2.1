@@ -1,6 +1,6 @@
 import React from "react";
 
-const Paciente = ({ paciente }) => {
+const Paciente = ({ paciente, setPaciente }) => {
 	const { nombre, propietario, email, fecha, sintomas } = paciente;
 	return (
 		<>
@@ -29,6 +29,7 @@ const Paciente = ({ paciente }) => {
 					<button
 						type="button"
 						className=" bg-indigo-600 text-white px-4 rounded-lg hover:bg-indigo-800 uppercase"
+						onClick={() => setPaciente(paciente)}
 					>
 						Editar
 					</button>
