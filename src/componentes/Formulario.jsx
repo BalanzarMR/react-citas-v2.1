@@ -1,14 +1,25 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Error from "./Error";
 
-const Formulario = ({ pacientes, setPacientes }) => {
+const Formulario = ({ pacientes, setPacientes, paciente }) => {
 	const [nombre, setNombre] = useState(" ");
 	const [propietario, setPropietario] = useState(" ");
 	const [email, setEmail] = useState(" ");
 	const [fecha, setFecha] = useState(" ");
 	const [sintomas, setSintomas] = useState(" ");
 	const [error, setError] = useState(false);
+
+	useEffect(() => {
+		// con la condiconal vefificamos que el objeto este vacio o lleno
+		if (Object.keys(paciente).length > 0) {
+			setNombre(paciente.nombre);
+			setPropietario(paciente.propietario);
+			setEmail(paciente.email);
+			setFecha(paciente.fecha);
+			setSintomas(paciente.sintomas);
+		}
+	}, [paciente]);
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
@@ -137,6 +148,7 @@ const Formulario = ({ pacientes, setPacientes }) => {
 				<input
 					type="submit"
 					className=" bg-indigo-600 w-full text-white uppercase font-bold hover:bg-indigo-700 py-3 rounded-lg cursor-pointer transition-all mb-3"
+					value={paciente.id ? "Editar Paciente" : "Agregar Paciente"}
 				/>
 			</form>
 		</div>
