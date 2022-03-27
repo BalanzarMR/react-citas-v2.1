@@ -23,7 +23,7 @@ const Formulario = ({ pacientes, setPacientes, paciente }) => {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-
+		//========================================generacion ID
 		const generarId = () => {
 			const random = Math.random().toString(36).substring(2);
 			const date = Date.now().toString(36);
@@ -42,10 +42,20 @@ const Formulario = ({ pacientes, setPacientes, paciente }) => {
 			email,
 			fecha,
 			sintomas,
-			id: generarId(),
 		};
 
-		setPacientes([...pacientes, objetoPaciente]);
+		if (paciente.id) {
+			//Editando el registro
+			objetoPaciente.id = paciente.id;
+			const pacientesActualizados = pacientes.map((pacienteState) =>
+				pacienteState.id === paciente.id ? objetoPaciente : pacienteState
+			);
+			setPacientes(pacientesActualizados);
+		} else {
+			//Nuevo registro
+			objetoPaciente.id = generarId();
+			setPacientes([...pacientes, objetoPaciente]);
+		}
 
 		setNombre("");
 		setPropietario("");
